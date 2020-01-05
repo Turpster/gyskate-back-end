@@ -177,3 +177,9 @@ dist
 # TernJS port file
 .tern-port
 
+### Personal .gitignore
+# Auto Generated Files
+settings.json
+
+# Personal Jetbrains Preference
+/.idea/**
