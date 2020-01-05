@@ -1,0 +1,19 @@
+{
+  "name": "gyskate-back-end",
+  "version": "0.0.1",
+  "description": "The package that is responsible for the back-end of gyskate.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Turpster/gyskate-back-end.git"
+  },
+  "author": "Turpster",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Turpster/gyskate-back-end/issues"
+  },
+  "homepage": "https://github.com/Turpster/gyskate-back-end#readme"
+}
