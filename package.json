@@ -4,7 +4,7 @@
   "description": "The package that is responsible for the back-end of gyskate.com",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",
