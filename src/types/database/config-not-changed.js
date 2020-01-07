@@ -1,0 +1,1 @@
+module.exports = (fileName) => {return Error(`Config for ${fileName} has not changed and needs to.`)};

@@ -1,5 +1,5 @@
 const fs = require('fs');
-const DatabaseNotChanged = require("./database/database-not-changed");
+const ConfigNotChanged = require("./database/config-not-changed");
 const path = require('path');
 const jsonDiff = require("json-diff").diff;
 
@@ -16,7 +16,7 @@ module.exports = class Config
         if (!fs.existsSync(file))
         {
             fs.writeFileSync(file, JSON.stringify(defaultContents, null,4));
-            if (shouldChangeOnNew) throw DatabaseNotChanged(file)
+            if (shouldChangeOnNew) throw ConfigNotChanged(file)
         }
 
         this.contents = require(path.relative(__dirname, file));
@@ -24,7 +24,7 @@ module.exports = class Config
 
         if (shouldChangeOnNew && !this.hasJsonChanged)
         {
-            throw DatabaseNotChanged(file);
+            throw ConfigNotChanged(file);
         }
     }
 };

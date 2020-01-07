@@ -1,1 +1,0 @@
-module.exports = (fileName) => {return Error(`Database for ${fileName} has not changed and needs to.`)};
