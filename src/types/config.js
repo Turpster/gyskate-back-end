@@ -12,7 +12,7 @@ module.exports = class Config
      * @param {JSON} defaultContents
      * @param {boolean} shouldChangeOnNew
      */
-    constructor(fileName, defaultContents, shouldChangeOnNew=false)
+    constructor(file, defaultContents, shouldChangeOnNew=false)
     {
         if (!fs.existsSync(file))
         {
@@ -28,4 +28,4 @@ module.exports = class Config
             throw DatabaseNotChanged(file);
         }
     }
-}
+};
