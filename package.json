@@ -18,6 +18,6 @@
   "homepage": "https://github.com/Turpster/gyskate-back-end#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "@databases/mysql": "latest"
+    "json-diff": "^0.5.4"
   }
 }
