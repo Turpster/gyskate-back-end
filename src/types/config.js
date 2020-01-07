@@ -5,9 +5,8 @@ const jsonDiff = require("json-diff").diff;
 
 module.exports = class Config
 {
-
     /**
-     * Constructor for Config
+     * constructor for the config object
      * @param {string} file
      * @param {JSON} defaultContents
      * @param {boolean} shouldChangeOnNew

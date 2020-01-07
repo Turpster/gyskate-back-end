@@ -3,9 +3,9 @@ const Database = require("database/database");
 module.exports = class UserRecord
 {
     /**
-     * Constructor for User
-     * @param {string} username
-     * @param {string} displayName
+     * constructor for user
+     * @param {Database} database the database that holds the user table
+     * @param {string} username the username of the target
      */
     constructor(database, username)
     {

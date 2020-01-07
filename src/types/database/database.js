@@ -4,7 +4,7 @@ const {sql} = require('@databases/mysql');
 module.exports = class Database
 {
     /**
-     * Constructor for Database
+     * constructor for database
      * @param {string} host
      * @param {number} port
      * @param {string} user
