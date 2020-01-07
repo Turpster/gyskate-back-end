@@ -1,0 +1,1 @@
+module.exports = (fileName) => {return Error(`Database for ${fileName} not changed and needs to.`)};
