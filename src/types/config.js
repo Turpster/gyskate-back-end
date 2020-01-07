@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-class Config
+module.exports = class Config
 {
     constructor(fileName, defaultContents)
     {
