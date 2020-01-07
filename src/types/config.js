@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-module.exports = class Config
+class Config
 {
     constructor(fileName, defaultContents)
     {
@@ -11,4 +11,4 @@ module.exports = class Config
 
         this.contents = require(fileName);
     }
-};
+}
