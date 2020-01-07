@@ -1,18 +1,24 @@
-module.exports = class User
+const Database = require("database/database");
+
+module.exports = class UserRecord
 {
     /**
      * Constructor for User
      * @param {string} username
      * @param {string} displayName
      */
-    constructor(username, displayName)
+    constructor(database, username)
     {
+        this.database = database;
         this.username = username;
-        this.displayName = displayName;
     }
 
-    getName()
+    /**
+     * get the displayname of the content
+     * @returns {string} the display name of the user
+     */
+    getDisplayName()
     {
-        // TODO Get name from database
+
     }
 };
