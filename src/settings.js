@@ -1,6 +1,7 @@
-const Config = require("types/config.js");
+const Config = require("./types/config");
 
-module.exports.settings = new Config("./settings.json", {
+module.exports = new Config("./settings.json",
+    {
     port: 9000,
     database: {
         host: "example-host.com",
@@ -11,6 +12,4 @@ module.exports.settings = new Config("./settings.json", {
             password: "example-password"
         }
     }
-}, false);
-
-module.exports.contents = () => {return module.exports.settings.contents};
+}, true);
