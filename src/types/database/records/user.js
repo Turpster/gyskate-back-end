@@ -1,4 +1,4 @@
-const Database = require("../database");
+const KnexClient = require("knex").Client;
 const Content = require('./content');
 const TableRecord = require('./table-record.js');
 
@@ -6,12 +6,12 @@ module.exports = class UserRecord extends TableRecord
 {
     /**
      * constructor for user
-     * @param {Database} database the database that holds the user table
+     * @param {KnexClient} knexClient the database client that holds the user table
      * @param {string} username the username of the target
      */
-    constructor(database, username)
+    constructor(knexClient, username)
     {
-        super(database);
+        super(knexClient);
         this.username = username;
     }
 

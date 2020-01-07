@@ -1,13 +1,13 @@
-const Database = require("../database");
+const KnexClient = require("knex").Client;
 
 module.exports = class TableRecord
 {
     /**
      * constructor for tablerecord
-     * @param {Database} database the target database for record
+     * @param {KnexClient} knexClient the database client for target table
      */
-    constructor(database)
+    constructor(knexClient)
     {
-        this.database = database;
+        this.knexTable = knexClient;
     }
 };

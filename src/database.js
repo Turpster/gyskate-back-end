@@ -1,4 +1,3 @@
-const Database = require("./types/database/database");
 const Settings = require("./settings");
 
 const UserRecord = require('./types/database/records/user');
@@ -6,9 +5,15 @@ const ContentRecord = require('./types/database/records/content');
 
 const BinaryFile = require("binary-file");
 
-module.exports.database = new Database(Settings.contents().database.host, Settings.contents().database.port,
-    Settings.contents().database.user.username, Settings.contents().user.password, Settings.contents().database.name);
-
+module.exports.database = require('knex')({
+    client: 'mysql',
+    connection: {
+        host: Settings.contents().host + ":" + Settings.contents().port,
+        user: Settings.contents().user.username,
+        password: Settings.contents().user.password,
+        database: Settings.contents().database
+    }
+});
 
 /**
  * create a new user

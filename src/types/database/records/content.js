@@ -1,15 +1,16 @@
 const User = require("user");
 const TableRecord = require("./table-record.js");
+const KnexClient = require('knex').Client;
 
 module.exports = class ContentRecord extends TableRecord
 {
     /**
      * constructor for the content object
-     * @param database the database that holds the content table
-     * @param id the id of the content
+     * @param {KnexClient} knexClient the database client that holds the content table
+     * @param {number} id the id of the content
      */
-    constructor(database, id) {
-        super(database);
+    constructor(knexClient, id) {
+        super(knexClient);
         this.id = id;
     }
 
