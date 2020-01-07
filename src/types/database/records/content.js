@@ -1,14 +1,15 @@
 const User = require("user");
+const TableRecord = require("./table-record.js");
 
-module.exports = class ContentRecord {
-
+module.exports = class ContentRecord extends TableRecord
+{
     /**
      * constructor for the content object
      * @param database the database that holds the content table
      * @param id the id of the content
      */
     constructor(database, id) {
-        this.database = database;
+        super(database);
         this.id = id;
     }
 

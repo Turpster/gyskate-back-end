@@ -1,7 +1,8 @@
 const Database = require("../database");
 const Content = require('./content');
+const TableRecord = require('./table-record.js');
 
-module.exports = class UserRecord
+module.exports = class UserRecord extends TableRecord
 {
     /**
      * constructor for user
@@ -10,7 +11,7 @@ module.exports = class UserRecord
      */
     constructor(database, username)
     {
-        this.database = database;
+        super(database);
         this.username = username;
     }
 
