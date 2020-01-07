@@ -1,7 +1,7 @@
 const connect = require('@databases/mysql');
 const {sql} = require('@databases/mysql');
 
-module.exports = class DatabaseConnection
+module.exports = class Database
 {
     /**
      * Constructor for Database
