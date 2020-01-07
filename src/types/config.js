@@ -5,8 +5,13 @@ const jsonDiff = require("json-diff").diff;
 
 module.exports = class Config
 {
-    hasJsonChanged;
 
+    /**
+     * Constructor for Config
+     * @param {string} file
+     * @param {JSON} defaultContents
+     * @param {boolean} shouldChangeOnNew
+     */
     constructor(fileName, defaultContents, shouldChangeOnNew=false)
     {
         if (!fs.existsSync(file))

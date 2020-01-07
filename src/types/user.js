@@ -1,5 +1,10 @@
 module.exports = class User
 {
+    /**
+     * Constructor for User
+     * @param {string} username
+     * @param {string} displayName
+     */
     constructor(username, displayName)
     {
         this.username = username;
