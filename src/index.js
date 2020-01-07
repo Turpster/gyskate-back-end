@@ -1,7 +1,6 @@
 const express = require('express');
-const Config = require("./types/database/database");
+const settings = require("./settings");
 const app = express();
-const settings = new Config("./settings.json", {port: 9000});
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
