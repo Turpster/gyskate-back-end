@@ -1,7 +1,7 @@
 const Settings = require("./settings");
 
-const UserRecord = require('./types/database/records/user');
-const ContentRecord = require('./types/database/records/content');
+module.exports.UserRecord = require('./types/database/records/user');
+module.exports.ContentRecord = require('./types/database/records/content');
 
 const BinaryFile = require("binary-file");
 
