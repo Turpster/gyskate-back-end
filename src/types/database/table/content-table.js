@@ -21,9 +21,9 @@ module.exports = class ContentTable extends DatabaseTable
      * @override
      * @return {Promise<void>}
      */
-    async createTable()
+    createTable()
     {
-        await this.knexClient.schema.createTable(this.tableName, async (table) => {
+        this.knexClient.schema.createTable(this.tableName, (table) => {
             table.string("id", 16).notNullable().primary().unique();
             table.string("title", ContentTable.propertyLength.TitleLength).notNullable();
             table.string("description", ContentTable.propertyLength.DescriptionLength).notNullable();
@@ -41,9 +41,9 @@ module.exports = class ContentTable extends DatabaseTable
      * @override
      * @return {Promise<TableRecord[]>}
      */
-    async getAllRecords()
+    getAllRecords()
     {
-        return await this.knexClient(this.tableName).where('id', this.id).then(data => {
+        return this.knexClient(this.tableName).where('id', this.id).then(data => {
             return data;
         });
     }
@@ -54,9 +54,9 @@ module.exports = class ContentTable extends DatabaseTable
      * @param {number} identifier record identifier
      * @return {Promise<boolean>}
      */
-    async recordExists(identifier)
+    recordExists(identifier)
     {
-        return await this.knexClient(this.tableName).where({id: identifier}).exists();
+        return this.knexClient(this.tableName).where({id: identifier}).exists();
     }
 
     /**

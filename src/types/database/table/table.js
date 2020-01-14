@@ -28,15 +28,15 @@ module.exports = class DatabaseTable
      * @param {KnexClient} knexClient knex database client
      * @param {string} tableName tables name
      */
-    async constructor(knexClient, tableName)
+    constructor(knexClient, tableName)
     {
         this.knexClient = knexClient;
         this.tableName = tableName;
 
-        await KnexClient.hasTable(this.tableName).then(async (r) => {
+        KnexClient.hasTable(this.tableName).then((r) => {
             if (r === false)
             {
-                await this.createTable();
+                this.createTable();
             }
         });
     }
@@ -46,7 +46,7 @@ module.exports = class DatabaseTable
      * @abstract
      * @return {Promise<TableRecord[]>}
      */
-    async getAllRecords()
+    getAllRecords()
     {
         AbstractFunctionError(this.getAllRecords.toString());
     }
@@ -57,7 +57,7 @@ module.exports = class DatabaseTable
      * @param identifier record identifier
      * @return {Promise<boolean>}
      */
-    async recordExists(identifier)
+    recordExists(identifier)
     {
         AbstractFunctionError(this.recordExists.toString());
     }
@@ -66,7 +66,7 @@ module.exports = class DatabaseTable
      * create table
      * @abstract
      */
-    async createTable()
+    createTable()
     {
         AbstractFunctionError(this.createTable.toString());
     }

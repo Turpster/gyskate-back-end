@@ -21,9 +21,9 @@ module.exports = class UserTable extends DatabaseTable
      * @override
      * @return {Promise<void>}
      */
-    async createTable()
+    createTable()
     {
-        await this.knexClient.schema.createTable(this.tableName, async (table) => {
+        this.knexClient.schema.createTable(this.tableName, (table) => {
             table.string("username", UserTable.propertyLength.UsernameLength).notNullable().primary().unique();
             table.string("display_name", UserTable.propertyLength.DisplayNameLength).notNullable();
 
@@ -37,11 +37,11 @@ module.exports = class UserTable extends DatabaseTable
      * @override
      * @return {Promise<UserRecord[]>}
      */
-    async getAllRecords() : Promise<UserRecord[]>
+    getAllRecords() : Promise<UserRecord[]>
     {
         let userRecords = [];
 
-        await this.knexClient(this.tableName).select("username").then(usernames => {
+        this.knexClient(this.tableName).select("username").then(usernames => {
             for (let i = 0; i < usernames.length; i++)
             {
                 let username = usernames[i];
@@ -58,9 +58,9 @@ module.exports = class UserTable extends DatabaseTable
      * @param {string} identifier record identifier
      * @return {Promise<boolean>}
      */
-    async recordExists(identifier) : Promise<boolean>
+    recordExists(identifier) : Promise<boolean>
     {
-        return await this.knexClient(this.tableName).where({username: identifier}).exists();
+        return this.knexClient(this.tableName).where({username: identifier}).exists();
     }
 
     /**

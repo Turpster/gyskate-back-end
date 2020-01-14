@@ -5,19 +5,19 @@ const UserTable = require("../table/user-table");
 module.exports = class UserRecord extends TableRecord
 {
     propertyGetters = {
-        display_name: async () => {
-            return await this.databaseTable.knexClient(this.databaseTable.tableName).select().where('username', this.username).select("display_name").then((data) => {
+        display_name: () => {
+            return this.databaseTable.knexClient(this.databaseTable.tableName).select().where('username', this.username).select("display_name").then((data) => {
                 return data;
             })
         },
 
-        created_at: async () => {
-            return await this.databaseTable.knexClient(this.databaseTable.tableName).select().where('username', this.username).select("created_at").then((data) => {
+        created_at: () => {
+            return this.databaseTable.knexClient(this.databaseTable.tableName).select().where('username', this.username).select("created_at").then((data) => {
                 return data;
             })
         },
-        password: async () => {
-            return await this.databaseTable.knexClient(this.databaseTable.tableName).select().where('username', this.username).select("password").then((data) => {
+        password: () => {
+            return this.databaseTable.knexClient(this.databaseTable.tableName).select().where('username', this.username).select("password").then((data) => {
                 return data;
             })
         }
