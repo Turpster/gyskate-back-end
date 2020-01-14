@@ -1,6 +1,8 @@
 const DatabaseTable = require('./table');
 const ContentRecord = require('../records/content');
 
+const RecordDoesNotExist = require('../../../utils/error/record-does-not-exist');
+
 module.exports = class ContentTable extends DatabaseTable
 {
     /**
@@ -62,9 +64,13 @@ module.exports = class ContentTable extends DatabaseTable
     /**
      * get a content record
      * @param {number} identifier the target content id
+     * @throws {RecordDoesNotExist} if the identifier does not match
      * @return {ContentRecord} the content record
      */
     getRecord(identifier) : ContentRecord {
-        return new ContentRecord(this, identifier)
+
+        if (this.recordExists(identifier))
+            return new ContentRecord(this, identifier);
+        else throw RecordDoesNotExist(identifier, this.tableName);
     }
 };
