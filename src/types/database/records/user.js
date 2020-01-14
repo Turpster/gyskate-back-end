@@ -1,27 +1,37 @@
-const KnexClient = require("knex").Client;
 const Content = require('./content');
 const TableRecord = require('./table-record.js');
+const UserTable = require("../table/user-table");
 
 module.exports = class UserRecord extends TableRecord
 {
+    propertyGetters = {
+        display_name: async () => {
+            return await this.databaseTable.knexClient(this.databaseTable.tableName).select().where('username', this.username).select("display_name").then((data) => {
+                return data;
+            })
+        },
+
+        created_at: async () => {
+            return await this.databaseTable.knexClient(this.databaseTable.tableName).select().where('username', this.username).select("created_at").then((data) => {
+                return data;
+            })
+        },
+        password: async () => {
+            return await this.databaseTable.knexClient(this.databaseTable.tableName).select().where('username', this.username).select("password").then((data) => {
+                return data;
+            })
+        }
+    };
+
     /**
      * constructor for user
-     * @param {KnexClient} knexClient the database client that holds the user table
+     * @param {UserTable} userTable the table that holds the user records
      * @param {string} username the username of the target
      */
-    constructor(knexClient, username)
+    constructor(userTable, username)
     {
-        super(knexClient);
+        super(userTable);
         this.username = username;
-    }
-
-    /**
-     * get the displayname of the content
-     * @returns {string} the display name of the user
-     */
-    getDisplayName()
-    {
-
     }
 
     /**
@@ -29,16 +39,7 @@ module.exports = class UserRecord extends TableRecord
      * @param {string} md5Hash the hash of the password
      * @return {boolean} whether password is correct or not
      */
-    authenticate(md5Hash)
-    {
-
-    }
-
-    /**
-     * get users contents
-     * @returns {Content[]} an array of content
-     */
-    getContent()
+    authenticate(md5Hash) : boolean
     {
 
     }
